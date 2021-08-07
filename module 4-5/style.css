@@ -1,0 +1,309 @@
+html {
+    box-sizing: border-box;
+}
+*,
+*::after,
+*::before {
+    box-sizing: inherit;
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6,
+p {
+    margin: 0;
+}
+.list {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+}
+.link {
+    text-decoration: none;
+    color: inherit;
+}
+img {
+    display: block;
+    max-width: 100%;
+    height: auto;
+}
+.page-section {
+    padding: 100px 0;
+    background-color: purple;
+    text-align: center;
+}
+
+.clip-container {
+    margin: 0 auto;
+    width: 1200px;
+    height: 500px;
+    background-color: #33106b;
+    position: relative;
+    margin-bottom: 80px;
+}
+.clip-item {
+    border-radius: 50px;
+    width: 100%;
+    height: 100%;
+    position: absolute;
+    background-repeat: no-repeat;
+    background-position: center;
+    background-size: cover;
+}
+.spring {
+    background-image: linear-gradient(
+            0deg,
+            rgba(103, 153, 154, 0.2) 0%,
+            rgba(253, 187, 45, 0.2) 100%
+        ),
+        url(./img/spring.jpg);
+    /* clip-path: polygon(50% 50%, 0 0, 0 100%); */
+    z-index: 4;
+    clip-path: polygon(0 100%, 0 0, 0 0, 50% 50%);
+    transition: 250ms;
+}
+.summer {
+    background-image: linear-gradient(
+            315deg,
+            rgba(241, 250, 17, 0.2) 0%,
+            rgba(29, 253, 141, 0.2) 50%,
+            rgba(69, 159, 252, 0.2) 100%
+        ),
+        url(./img/summer.jpg);
+    /* clip-path: polygon(50% 50%, 100% 0, 0 0); */
+    z-index: 3;
+    clip-path: polygon(0 100%, 0 0, 100% 0, 50% 50%);
+    transition: 250ms;
+}
+.autumn {
+    background-image: linear-gradient(
+            90deg,
+            rgba(131, 58, 180, 0.2) 0%,
+            rgba(253, 29, 29, 0.2) 50%,
+            rgba(252, 176, 69, 0.2) 100%
+        ),
+        url(./img/autumn.jpg);
+    /* clip-path: polygon(100% 0, 100% 100%, 50% 50%); */
+    z-index: 1;
+    /* clip-path: polygon(0 0, 100% 0, 100% 100%, 50% 50%); */
+    transition: 250ms;
+    clip-path: polygon(0 100%, 50% 50%, 100% 0, 100% 100%);
+}
+.winter {
+    background-image: linear-gradient(
+            45deg,
+            rgba(204, 238, 174, 0.2) 0%,
+            rgba(148, 187, 233, 0.2) 100%
+        ),
+        url(./img/winter.jpeg);
+    /* clip-path: polygon(50% 50%, 0% 100%, 100% 100%); */
+    clip-path: polygon(0 100%, 0 0, 50% 50%, 100% 100%);
+    z-index: 2;
+    transition: 250ms;
+}
+
+.spring:hover,
+.summer:hover,
+.autumn:hover,
+.winter:hover {
+    clip-path: polygon(0 0%, 100% 0, 100% 100%, 0% 100%);
+    z-index: 5;
+}
+
+.grid-gallery {
+    margin: 0 auto;
+    width: 1200px;
+    height: auto;
+    display: grid;
+    grid-auto-rows: minmax(200px, auto);
+    grid-template-columns: repeat(5, 1fr);
+    /* grid-template-rows: repeat(6, 200px); */
+    background-color: rgb(41, 236, 190);
+    grid-gap: 10px;
+    counter-reset: grid-items;
+}
+.grid-item {
+    position: relative;
+}
+/* .grid-item:nth-child(2n) {
+    background-color: rgb(236, 236, 41);
+}
+.grid-item:nth-child(3n) {
+    background-color: rgb(240, 90, 207);
+}
+.grid-item:nth-child(4n) {
+    background-color: rgb(90, 110, 240);
+}
+.grid-item:nth-child(5n) {
+    background-color: rgb(43, 236, 59);
+}
+.grid-item:nth-child(6n + 1) {
+    background-color: rgb(157, 90, 240);
+}
+.grid-item:nth-child(11n) {
+    background-color: rgb(240, 137, 90);
+}
+.grid-item:nth-child(17n) {
+    background-color: rgb(240, 90, 110);
+} */
+.grid-item::before {
+    display: block;
+    content: counter(grid-items);
+    counter-increment: grid-items;
+    width: 40px;
+    height: 40px;
+    background-color: white;
+    color: rgb(248, 7, 7);
+    border-radius: 50%;
+    position: absolute;
+    top: 10%;
+    left: 20%;
+    font-weight: 700;
+    line-height: 1.14;
+    font-size: 35px;
+    text-align: center;
+    /* vertical-align: middle; */
+}
+.grid-item {
+    background-color: rgb(83, 83, 88);
+}
+.grid-item:nth-child(1) {
+    grid-column: 1/3;
+    grid-row: 1/3;
+    background-color: rgb(236, 236, 41);
+}
+
+.grid-item:nth-child(10) {
+    grid-column: 3/5;
+    background-color: rgb(240, 90, 207);
+}
+.grid-item:nth-child(13) {
+    grid-column: 2/4;
+    grid-row: 4/6;
+    background-color: rgb(90, 110, 240);
+}
+
+.grid-item:nth-child(17) {
+    grid-column: 4/6;
+    background-color: rgb(157, 90, 240);
+}
+.grid-item:nth-child(18) {
+    grid-column: 1/3;
+    background-color: rgb(43, 236, 59);
+}
+
+.img1 {
+    /* grid-column: 1/3;
+    grid-row: 1/3; */
+    /* background-color: antiquewhite; */
+}
+.img2 {
+    /* grid-column: 3;
+    grid-row: 1; */
+    /* background-color: burlywood; */
+}
+.img3 {
+    /* grid-column: 4;
+    grid-row: 1; */
+    /* background-color: chartreuse; */
+}
+.img4 {
+    /* grid-column: 5;
+    grid-row: 1; */
+    /* background-color: coral; */
+}
+.img5 {
+    /* grid-column: 3;
+    grid-row: 2; */
+    /* background-color: cornflowerblue; */
+}
+.img6 {
+    /* grid-column: 4;
+    grid-row: 2; */
+    /* background-color: cyan; */
+}
+.img7 {
+    /* grid-column: 5;
+    grid-row: 2; */
+    /* background-color: darkmagenta; */
+}
+.img8 {
+    /* grid-column: 1;
+    grid-row: 3; */
+    /* background-color: deeppink; */
+}
+.img9 {
+    /* grid-column: 2;
+    grid-row: 3; */
+    /* background-color: fuchsia; */
+}
+.img10 {
+    /* grid-column: 3/5; */
+    /* grid-row: 3; */
+    /* background-color: yellow; */
+}
+.img11 {
+    /* grid-column: 5;
+    grid-row: 3; */
+    /* background-color: indigo; */
+}
+.img12 {
+    /* grid-column: 1;
+    grid-row: 4; */
+    /* background-color: khaki; */
+}
+.img13 {
+    /* grid-column: 2/4;
+    grid-row: 4/6; */
+    /* background-color: lightcoral; */
+}
+.img14 {
+    /* grid-column: 4;
+    grid-row: 4; */
+    /* background-color: lightseagreen; */
+}
+.img15 {
+    /* grid-column: 5;
+    grid-row: 4; */
+    /* background-color: lightskyblue; */
+}
+.img16 {
+    /* grid-column: 1;
+    grid-row: 5; */
+    /* background-color: maroon; */
+}
+.img17 {
+    /* grid-column: 4/6; */
+    /* grid-row: 5; */
+    /* background-color: mediumaquamarine; */
+}
+.img18 {
+    /* grid-column: 1/3; */
+    /* grid-row: 6;
+    background-color: orchid; */
+}
+.img19 {
+    /* grid-column: 3;
+    grid-row: 6; */
+    /* background-color: palegreen; */
+}
+.img20 {
+    /* grid-column: 4;
+    grid-row: 6; */
+    /* background-color: plum; */
+}
+.img21 {
+    /* grid-column: 5;
+    grid-row: 6; */
+    /* background-color: rebeccapurple; */
+}
+
+.page-title {
+    color: rgb(255, 255, 255);
+    font-size: 90px;
+    mix-blend-mode: difference;
+    margin-bottom: 80px;
+}
