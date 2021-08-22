@@ -79,7 +79,7 @@
 
 -   [Flexbox несколько полезных примеров для работы](http://falbar.ru/article/flexbox-neskolko-poleznyh-primerov-dlya-raboty)
 
-## module-2-3
+## module-4-5
 
 ### Полезности
 
@@ -94,3 +94,7 @@
 -   [CSS3 3D-трансформации](https://html5book.ru/3d-transform/)
 
 -   [CSS3: анимация против переходов](https://www.internet-technologies.ru/articles/css3-animaciya-protiv-perehodov.html#header-9152-6)
+
+## module-6-7
+
+-   [красивые формы](https://codyshop.ru/kollektsiya-iz-15-krasivyih-form-registratsii-i-avtorizatsii/)
