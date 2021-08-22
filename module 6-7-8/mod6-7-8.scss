@@ -1,0 +1,95 @@
+/* пример медиа-правил для контейнера */
+
+.container {
+    width: 100%;
+    margin: 0 auto;
+    padding-left: 15px;
+    padding-right: 15px;
+
+    @media screen and (min-width: 480px) {
+        width: 480px;
+    }
+
+    @media screen and (min-width: 768px) {
+        width: 768px;
+    }
+    @media screen and (min-width: 1200px) {
+        width: 1200px;
+    }
+}
+
+/* стили для коррекции фона формы при автозаполнении */
+
+input:-webkit-autofill,
+input:-webkit-autofill:hover,
+input:-webkit-autofill:focus,
+input:-webkit-autofill:active {
+    transition: background-color 5000s ease-in-out 0s;
+    -webkit-box-shadow: 0 0 0px 1000px #fff inset;
+}
+
+/* миксины */
+
+@mixin transition($one, $two, $three, $time, $function) {
+    transition-property: $one, $two, $three;
+    transition-duration: $time;
+    transition-timing-function: $function;
+}
+
+@mixin font($ff, $fs, $fw, $lh, $ls, $fc) {
+    font-family: $ff;
+    font-size: $fs;
+    font-weight: $fw;
+    line-height: $lh;
+    letter-spacing: $ls;
+    color: $fc;
+}
+
+@mixin flex($display, $ai, $jc, $direction, $wrap) {
+    display: $display;
+    align-items: $ai;
+    justify-content: $jc;
+    flex-direction: $direction;
+    flex-wrap: $wrap;
+}
+
+@mixin list($l, $t, $wrap) {
+    display: flex;
+    margin-left: -1 * $l;
+    margin-top: -1 * $t;
+    flex-wrap: $wrap;
+}
+
+@mixin listItem($l, $t, $q, $gap) {
+    margin-left: $l;
+    margin-top: $t;
+    flex-basis: calc(100% / #{$q} - #{$gap});
+}
+
+@mixin sectionMixin($t, $b) {
+    padding-top: $t;
+    padding-bottom: $b;
+}
+
+/* стили для списка второй секции */
+
+.advantages__item {
+    &:not(:last-child) {
+        margin-bottom: 30px;
+    }
+
+    @media screen and (min-width: 768px) {
+        @include listItem(30px, 30px, 2, 30px);
+    }
+    @media screen and (min-width: 1200px) {
+        @include listItem(30px, 30px, 4, 30px);
+    }
+}
+.advantages__list {
+    @media screen and (min-width: 768px) {
+        @include list(30px, 30px, wrap);
+    }
+    @media screen and (min-width: 1200px) {
+        @include list(30px, 30px, nowrap);
+    }
+}
